@@ -13,3 +13,19 @@ spec:
         kind: HelmRepository
         name: bitnamicharts
   interval: 1m0s
+  values:
+    initdbScripts: 
+      install.sh: |
+        #!/bin/sh
+        mysql < /mnt/data/employees_partitioned.sql
+        mysql -t < /mnt/data/test_employees_md5.sql
+    primary:
+      persistence:
+        enabled: false
+      extraVolumes:
+        - name: hostmnt
+          hostPath:
+            path: /workspaces/flux-demo/test_db
+      extraVolumeMounts:
+        - name: hostmnt
+          mountPath: /mnt/data
