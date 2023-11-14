@@ -2,9 +2,9 @@
 apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: HelmRepository
 metadata:
-  name: mysqldb
+  name: bitnamicharts
   namespace: flux-system
 spec:
   interval: 1m0s
   type: oci
-  url: oci://registry-1.docker.io/bitnamicharts/mysql
+  url: oci://registry-1.docker.io/bitnamicharts

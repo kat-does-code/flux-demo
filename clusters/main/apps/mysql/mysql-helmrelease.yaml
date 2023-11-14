@@ -11,5 +11,5 @@ spec:
       reconcileStrategy: ChartVersion
       sourceRef:
         kind: HelmRepository
-        name: mysqldb
+        name: bitnamicharts
   interval: 1m0s
