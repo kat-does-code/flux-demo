@@ -11,7 +11,7 @@ If synced from Github, requires a fine grained access token with the following p
 Helm values docs: https://docs.gitops.weave.works/docs/references/helm-reference/
 
 ## Setup
-1. Create your cluster, or use minikube 
+1. Create your cluster, or use minikube.
 2. Bootstrap flux.
 
   ```flux bootstrap github \
@@ -21,3 +21,5 @@ Helm values docs: https://docs.gitops.weave.works/docs/references/helm-reference
   --branch=main \
   --path=clusters/main \
   --personal```
+3. Wait for reconciliation
+4. Expose/Port forward weave on port 9001. Creds are admin/admin.
