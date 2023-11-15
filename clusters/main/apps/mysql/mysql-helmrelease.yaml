@@ -14,15 +14,6 @@ spec:
         name: bitnamicharts
   interval: 1m0s
   values:
-    auth:
-      username: myuser
-      password: mypassword
-    initdbScripts: 
-      import.sh: |
-        #!/bin/sh
-        cd /data/test_db/
-        mysql -u root -png75fJPTnu my_database < employees_partitioned.sql
-        mysql -t < test_employees_md5.sql
     primary:
       persistence:
         enabled: false
