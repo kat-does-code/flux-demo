@@ -5,4 +5,4 @@ resources:
 - mysql
 - phpmyadmin
 - weave-gitops
-- kustomization.yaml
+- namespace.yaml
