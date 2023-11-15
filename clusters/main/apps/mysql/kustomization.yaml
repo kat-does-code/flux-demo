@@ -1,8 +1,6 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 resources:
-- debug
-- mysql
-- phpmyadmin
-- weave-gitops
-- kustomization.yaml
+- mysql-helmrelease.yaml
+- mysql-pv-claim.yaml
+- mysql-pv-volume.yaml
