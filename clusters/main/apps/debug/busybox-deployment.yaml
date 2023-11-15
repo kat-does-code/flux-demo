@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   # This name uniquely identifies the Deployment
   name: busybox
-  namespace: flux-system
+  namespace: apps
 spec:  
   replicas: 1
   selector:
