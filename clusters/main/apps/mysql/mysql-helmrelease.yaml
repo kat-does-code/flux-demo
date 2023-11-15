@@ -14,19 +14,22 @@ spec:
         name: bitnamicharts
   interval: 1m0s
   values:
+    auth:
+      username: myuser
+      password: mypassword
     initdbScripts: 
-      install.sh: |
+      import.sh: |
         #!/bin/sh
-        mysql < /mnt/data/employees_partitioned.sql
-        mysql -t < /mnt/data/test_employees_md5.sql
+        cd /data/test_db/
+        mysql -u root -png75fJPTnu my_database < employees_partitioned.sql
+        mysql -t < test_employees_md5.sql
     primary:
       persistence:
         enabled: false
       extraVolumeMounts:
-        - name: hostmnt
-          mountPath: /mnt/data
+          - name:  mysql-pv-storage
+            mountPath: "/data/"
       extraVolumes:
-        - name: hostmnt
-          hostPath:
-            path: /workspaces/flux-demo/test_db
-            type: Directory
+        - name: mysql-pv-storage
+          persistentVolumeClaim:
+            claimName: mysql-pv-claim  
