@@ -16,5 +16,5 @@ spec:
   interval: 1m0s
   values:
     db:
-      host:
-        mysqldb
+      chartName:
+        mysql

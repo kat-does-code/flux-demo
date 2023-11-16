@@ -21,8 +21,6 @@ spec:
       rootPassword: "nZjrSKJvTb" # for migration purposes
       password: "Arus7qQISM"
     primary:
-      persistence:
-        enabled: false
       extraVolumeMounts:
           - name:  mysql-pv-storage
             mountPath: "/data/"
