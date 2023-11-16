@@ -19,6 +19,7 @@ spec:
     auth:
       replicationPassword: "iridacio"
       rootPassword: "nZjrSKJvTb" # for migration purposes
+      password: "Arus7qQISM"
     primary:
       persistence:
         enabled: false
