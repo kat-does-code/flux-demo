@@ -18,6 +18,7 @@ spec:
     architecture: replication
     auth:
       replicationPassword: "iridacio"
+      rootPassword: "nZjrSKJvTb" # for migration purposes
     primary:
       persistence:
         enabled: false
