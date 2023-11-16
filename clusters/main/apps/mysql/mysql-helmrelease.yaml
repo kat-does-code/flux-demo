@@ -16,6 +16,8 @@ spec:
   interval: 1m0s
   values:
     architecture: replication
+    auth:
+      replicationPassword: "iridacio"
     primary:
       persistence:
         enabled: false
