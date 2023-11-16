@@ -15,6 +15,7 @@ spec:
         namespace: flux-system
   interval: 1m0s
   values:
+    architecture: replication
     primary:
       persistence:
         enabled: false
@@ -24,4 +25,6 @@ spec:
       extraVolumes:
         - name: mysql-pv-storage
           persistentVolumeClaim:
-            claimName: mysql-pv-claim  
+            claimName: mysql-pv-claim
+    secondary:
+      replicaCount: 2
