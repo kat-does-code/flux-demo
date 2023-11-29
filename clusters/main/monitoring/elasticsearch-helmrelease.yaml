@@ -16,3 +16,7 @@ spec:
   interval: 10m0s
   values:
     persistence: false
+    volumeClaimTemplate:
+      resources:
+        requests:
+          storage: 3Gi
