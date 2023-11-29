@@ -6,4 +6,3 @@ resources:
 - namespace.yaml
 - prometheus-elasticsearch-exporter.yaml
 - prometheus-helmrelease.yaml
-- pv-elastic.yaml
