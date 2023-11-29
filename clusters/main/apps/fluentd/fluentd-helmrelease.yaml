@@ -7,10 +7,10 @@ metadata:
 spec:
   chart:
     spec:
-      chart: fluent
+      chart: fluentd
       reconcileStrategy: ChartVersion
       sourceRef:
         kind: HelmRepository
-        name: fluentd
+        name: fluent
         namespace: flux-system
   interval: 1m0s
