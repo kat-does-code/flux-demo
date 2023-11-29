@@ -30,3 +30,5 @@ spec:
             claimName: mysql-pv-claim
     secondary:
       replicaCount: 2
+    service:
+      type: ClusterIP
