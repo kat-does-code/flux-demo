@@ -12,5 +12,5 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: prometheus-community
-        namepspace: flux-system
+        namespace: flux-system
   interval: 10m0s
