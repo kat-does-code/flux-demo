@@ -71,7 +71,7 @@ spec:
             Retry_Limit False
             tls On 
             tls.verify Off
-            Type doc
+            Suppress_Type_Name On 
 
         [OUTPUT]
             Name es
@@ -84,7 +84,7 @@ spec:
             Retry_Limit False
             tls On 
             tls.verify Off
-            Type doc
+            Suppress_Type_Name On 
 
       ## https://docs.fluentbit.io/manual/pipeline/parsers
       customParsers: |
