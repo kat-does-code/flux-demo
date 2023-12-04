@@ -16,4 +16,5 @@ spec:
   interval: 10m0s
   values:
     env:
-      K8S_NODE_NAME: "minikube"
+      - name: "K8S_NODE_NAME"
+        value: "minikube"
