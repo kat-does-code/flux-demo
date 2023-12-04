@@ -17,7 +17,17 @@ spec:
   values:
     env:
       - name: "K8S_NODE_NAME"
-        value: "minikube"
+        valueFrom:
+          fieldRef:
+            fieldPath: spec.nodeName
+      - name:  FLUENT_ELASTICSEARCH_HOST
+        value: "elasticsearch-master"
+      - name:  FLUENT_ELASTICSEARCH_PORT
+        value: "9200"
+      - name: FLUENT_ELASTICSEARCH_SCHEME
+        value: "http"
+      - name: FLUENT_ELASTICSEARCH_SSL_VERIFY
+        value: "true"
       - name: FLUENT_ELASTICSEARCH_USER
         valueFrom:
           secretKeyRef:
