@@ -72,7 +72,7 @@ spec:
             tls On 
             tls.verify Off
             Suppress_Type_Name On 
-            Index kube
+            Trace_Error On
 
         [OUTPUT]
             Name es
@@ -86,7 +86,7 @@ spec:
             tls On 
             tls.verify Off
             Suppress_Type_Name On 
-            Index host
+            Trace_Error On
 
       ## https://docs.fluentbit.io/manual/pipeline/parsers
       customParsers: |
