@@ -18,7 +18,7 @@ spec:
     env:
       - name: "K8S_NODE_NAME"
         value: "minikube"
-      - name: FLUENT_ELASTICSEARCH_USERNAME
+      - name: FLUENT_ELASTICSEARCH_USER
         valueFrom:
           secretKeyRef:
             name: elasticsearch-master-credentials
