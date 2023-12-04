@@ -64,6 +64,8 @@ spec:
         [OUTPUT]
             Name es
             Match kube.*
+            HTTP_User fluent
+            HTTP_Passwd fluent123
             Host elasticsearch-master
             Logstash_Format On
             Retry_Limit False
@@ -73,6 +75,8 @@ spec:
         [OUTPUT]
             Name es
             Match host.*
+            HTTP_User fluent 
+            HTTP_Passwd fluent123
             Host elasticsearch-master
             Logstash_Format On
             Logstash_Prefix node
