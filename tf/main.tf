@@ -24,6 +24,7 @@ provider "minikube" {
 resource "minikube_cluster" "docker" {
   driver = "docker"
   cluster_name = "terraform-provided-minikube-in-docker"
+  cni = "calico"
   addons = [
     "default-storageclass",
     "storage-provisioner"
