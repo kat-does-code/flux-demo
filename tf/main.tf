@@ -23,11 +23,12 @@ provider "minikube" {
 
 resource "minikube_cluster" "docker" {
   driver = "docker"
-  cluster_name = "terraform-provided-minikube-in-docker"
+  cluster_name = "terraform-minikube-in-docker"
   cni = "calico"
   addons = [
     "default-storageclass",
-    "storage-provisioner"
+    "storage-provisioner",
+    "dashboard"
   ]
 }
 
@@ -59,4 +60,8 @@ provider "flux" {
 
 resource "flux_bootstrap_git" "this" {
   path = "clusters/main"
+
+  lifecycle {
+    replace_triggered_by = [ minikube_cluster.docker.id ]
+  }
 }
