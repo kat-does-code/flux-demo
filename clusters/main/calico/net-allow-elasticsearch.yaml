@@ -4,9 +4,7 @@ metadata:
   name: allow-elastic
   namespace: monitoring
 spec:
-  podSelector: 
-    matchLabels:
-      app: elasticsearch-master
+  selector: app == 'elasticsearch-master'
   types:
     - Ingress
     - Egress
