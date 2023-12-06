@@ -1,3 +1,4 @@
+---
 apiVersion: projectcalico.org/v3
 kind: NetworkPolicy
 metadata:
@@ -18,3 +19,30 @@ spec:
         services:
           name: elasticsearch-master-headless
           namespace: monitoring
+---
+apiVersion: projectcalico.org/v3
+kind: NetworkPolicy
+metadata:
+  name: allow-elastic
+  namespace: monitoring
+spec:
+  selector: app == 'elasticsearch-master'
+  types:
+    - Egress
+    - Ingress
+  egress:
+    - action: Allow
+      protocol: TCP
+      source: 
+        selector: app
+      destination:
+        ports:
+          - 9200
+          - 9300
+  ingress:
+    - action: Allow
+      protocol: TCP
+      destination:
+        ports:
+          - 9200
+          - 9300
