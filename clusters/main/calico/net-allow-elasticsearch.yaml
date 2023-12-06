@@ -1,0 +1,21 @@
+apiVersion: projectcalico.org/v3
+kind: NetworkPolicy
+metadata:
+  name: allow-tcp-9200
+  namespace: monitoring
+spec:
+  selector: all()
+  types:
+    - Ingress
+    - Egress
+  ingress:
+    - action: Allow
+      destination:
+        services:
+          name: elasticsearch-master
+    - action: Allow
+      destination:
+        services:
+          name: elasticsearch-master-headless
+  egress:
+    - action: Allow
