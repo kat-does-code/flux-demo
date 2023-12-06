@@ -1,7 +1,7 @@
 apiVersion: projectcalico.org/v3
 kind: NetworkPolicy
 metadata:
-  name: allow-tcp-9200
+  name: allow-elastic
   namespace: monitoring
 spec:
   selector: all()
