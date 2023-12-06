@@ -12,10 +12,10 @@ spec:
       source:
         selector: all()
       icmp:
-        type: 8  Ping request
+        type: 8  
     - action: Allow
       protocol: ICMPv6
       source:
         selector: all()
       icmp:
-        type: 128  Ping request
+        type: 128  
