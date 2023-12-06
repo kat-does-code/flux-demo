@@ -2,7 +2,7 @@
 apiVersion: projectcalico.org/v3
 kind: NetworkPolicy
 metadata:
-  name: allow-elastic
+  name: allow-elastic-service
   namespace: monitoring
 spec:
   selector: app == 'elasticsearch-master'
@@ -23,7 +23,7 @@ spec:
 apiVersion: projectcalico.org/v3
 kind: NetworkPolicy
 metadata:
-  name: allow-elastic
+  name: allow-elastic-ports
   namespace: monitoring
 spec:
   selector: app == 'elasticsearch-master'
