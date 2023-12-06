@@ -6,16 +6,15 @@ metadata:
 spec:
   selector: app == 'elasticsearch-master'
   types:
-    - Ingress
     - Egress
-  ingress:
+  egress:
     - action: Allow
       destination:
         services:
           name: elasticsearch-master
+          namespace: monitoring
     - action: Allow
       destination:
         services:
           name: elasticsearch-master-headless
-  egress:
-    - action: Allow
+          namespace: monitoring
