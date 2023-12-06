@@ -34,7 +34,7 @@ spec:
     - action: Allow
       protocol: TCP
       source: 
-        selector: app
+        selector: app == 'elasticsearch-master'
       destination:
         ports:
           - 9200
@@ -42,6 +42,8 @@ spec:
   ingress:
     - action: Allow
       protocol: TCP
+      source: 
+        selector: app == 'elasticsearch-master'
       destination:
         ports:
           - 9200
