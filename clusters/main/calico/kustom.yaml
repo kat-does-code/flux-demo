@@ -19,6 +19,7 @@ spec:
   interval: 10m
   sourceRef:
     kind: GitRepository
+    namespace: flux-system
     name: git-calico
   path: "./manifests/calico.yaml"
   prune: true
