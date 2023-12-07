@@ -18,7 +18,7 @@ spec:
     antiAffinity: "soft"
     esJavaOpts: "-Xmx512m -Xms512m"
     volumeClaimTemplate:
-      storageCalssName: "standard"
+      storageClassName: "standard"
       resources:
         requests:
           storage: 3Gi
