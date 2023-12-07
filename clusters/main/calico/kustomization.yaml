@@ -1,0 +1,25 @@
+---
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: GitRepository
+metadata:
+  name: git-calico
+  namespace: flux-system
+spec:
+  interval: 5m
+  url: https://github.com/projectcalico/calico
+  ref:
+    branch: master
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: manifest-calico-operator
+  namespace: tigera-operator
+spec:
+  interval: 10m
+  sourceRef:
+    kind: GitRepository
+    name: git-calico
+  path: "./manifests/calico.yaml"
+  prune: true
+  timeout: 1m

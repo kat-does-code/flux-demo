@@ -10,7 +10,7 @@ If synced from Github, requires a fine grained access token with the following p
 
 ## Getting started
 This project uses Visual Studio Code and Dev Containers. Make sure to execute _build and reopen in container_ from the command palette. 
-1. Create your cluster, or use minikube by executing `minikube start`.
+1. Create your cluster, or use minikube by executing `minikube start --cni=calico`.
 2. Bootstrap [flux](https://fluxcd.io/flux/installation/). 
 
     ```bash
@@ -22,7 +22,7 @@ This project uses Visual Studio Code and Dev Containers. Make sure to execute _b
     --path=clusters/main \
     --personal
 3. Wait for reconciliation.
-4. Expose/Port forward services if running minikube. 
+4. Port forward services if running locally. 
    1) GitOps Weave from flux-system namespace on port 9001. Creds are admin/admin. For helm values documentation, refer to https://docs.gitops.weave.works/docs/references/helm-reference/. 
    2) Kubernetes dashboard from kubernetes-dashboard namespace on port 9090.
 

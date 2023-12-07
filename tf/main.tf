@@ -1,52 +1,33 @@
+locals {
+  kube_config_location = "~/.kube/config"
+  kube_context = "minikube"
+}
+
 terraform {
   required_version = ">= 0.12"
 
   required_providers {
-    minikube = {
-      source = "scott-the-programmer/minikube"
-      version = "0.3.6"
-    }
-    kubernetes = {
-      source = "hashicorp/kubernetes"
-      version = "2.12.1"
-    }
     flux = {
       source = "fluxcd/flux"
       version = "1.1.2"
     }
+    kubernetes = {
+      source = "hashicorp/kubernetes"
+      version = "2.24.0"
+    }
   }
 }
 
-provider "minikube" {
-  kubernetes_version = "v1.28.3"
-}
-
-resource "minikube_cluster" "docker" {
-  driver = "docker"
-  cluster_name = "terraform-minikube-in-docker"
-  cni = "calico"
-  addons = [
-    "default-storageclass",
-    "storage-provisioner",
-    "dashboard"
-  ]
-}
-
 provider "kubernetes" {
-  host = minikube_cluster.docker.host
-
-  client_certificate = minikube_cluster.docker.client_certificate
-  client_key = minikube_cluster.docker.client_key
-  cluster_ca_certificate = minikube_cluster.docker.cluster_ca_certificate
+  config_path    = local.kube_config_location
+  config_context = local.kube_context
 }
+
 
 provider "flux" {
   kubernetes = {
-    host = minikube_cluster.docker.host
-
-    client_certificate = minikube_cluster.docker.client_certificate
-    client_key = minikube_cluster.docker.client_key
-    cluster_ca_certificate = minikube_cluster.docker.cluster_ca_certificate
+    config_path = local.kube_config_location
+    config_context = local.kube_context
   }
   git = {
     url = "https://github.com/kat-does-code/flux-demo.git"
@@ -58,10 +39,8 @@ provider "flux" {
   }
 }
 
+
+
 resource "flux_bootstrap_git" "this" {
   path = "clusters/main"
-
-  lifecycle {
-    replace_triggered_by = [ minikube_cluster.docker.id ]
-  }
 }
