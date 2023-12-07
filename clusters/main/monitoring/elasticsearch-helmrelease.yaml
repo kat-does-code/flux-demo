@@ -16,7 +16,7 @@ spec:
   interval: 10m0s
   values:
     antiAffinity: "soft"
-    esJavaOpts: "-Xmx128m -Xms128m"
+    esJavaOpts: "-Xmx512m -Xms512m"
     volumeClaimTemplate:
       storageCalssName: "standard"
       resources:
